@@ -6,9 +6,6 @@ var Sequelize = require("sequelize");
 var sequelize = new Sequelize(process.env.POSTGRESQL_LOCAL_DB, "", "", {
     host: process.env.POSTGRESQL_LOCAL_HOST,
     dialect: 'postgres',
-    dialectOptions: {
-        ssl: true
-    },
     freezeTableName: true,
     pool: {
         max: 9,

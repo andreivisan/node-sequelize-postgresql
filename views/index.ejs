@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Tasks</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Tasks</h1>
+
+    <div id="task-add-div">
+        <form action="/add-task" id="addTaskForm" method="post" role="form">
+            <label>Task: </label>
+            <input name="task-name" type="text" placeholder="E.g. Code more" class="form-control">
+            <div>
+                <button type="submit"><strong>ADD TASK</strong></button>
+            </div>
+        </form>
+    </div>
   </body>
 </html>
