@@ -7,6 +7,9 @@ var sequelize = new Sequelize(process.env.POSTGRESQL_LOCAL_DB, "", "", {
     host: process.env.POSTGRESQL_LOCAL_HOST,
     dialect: 'postgres',
     freezeTableName: true,
+    define: {
+        timestamps: false
+    },
     pool: {
         max: 9,
         min: 0,

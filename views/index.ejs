@@ -10,11 +10,21 @@
     <div id="task-add-div">
         <form action="/add-task" id="addTaskForm" method="post" role="form">
             <label>Task: </label>
-            <input name="task-name" type="text" placeholder="E.g. Code more" class="form-control">
+            <input name="taskName" type="text" placeholder="E.g. Code more" class="form-control">
             <div>
                 <button type="submit"><strong>ADD TASK</strong></button>
             </div>
         </form>
+    </div>
+
+    <div id="task-list">
+      <ul>
+        <% if(tasks) { %>
+          <% tasks.forEach(function(task) { %>
+            <li><%= task.title %></li>
+          <% }) %>
+        <% } %>
+      </ul>
     </div>
   </body>
 </html>
