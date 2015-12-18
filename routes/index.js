@@ -5,7 +5,9 @@ var models = require("../models");
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', {tasks: null});
+  models.Tasks.all().then(function(taskList) {
+    res.render('index', {tasks: taskList});
+  });
 });
 
 router.post('/add-task', function(req, res) {
