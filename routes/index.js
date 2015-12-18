@@ -23,4 +23,31 @@ router.post('/add-task', function(req, res) {
         });
 });
 
+router.put('/task/:id', function(req, res) {
+  models.Tasks.find({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(task) {
+    if(task) {
+      task.updateAttributes({
+        title: req.body.title,
+        completed: req.body.completed
+      }).then(function(task) {
+        res.send(task);
+      });
+    }
+  });
+});
+
+router.delete('/task/:id', function(req, res) {
+  models.Tasks.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(task) {
+    res.json(task);
+  });
+});
+
 module.exports = router;
